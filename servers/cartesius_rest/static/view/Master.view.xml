@@ -1,0 +1,49 @@
+<mvc:View
+	controllerName="sap.ui.Cartesius.view.Master"
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="page" >
+		<subHeader>
+			<Bar id="searchBar">
+				<contentMiddle>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			
+			
+			<Panel expandable="true" expanded="true">
+				<headerToolbar>
+				  <Toolbar height="3rem">
+
+					<ToolbarSpacer />
+					<Button icon="sap-icon://settings" />
+					<Button icon="sap-icon://drop-down-list" />
+				  </Toolbar>
+				</headerToolbar>
+				<content>
+					
+					<List
+						id="list"
+						items="{/GDELTEntries}"
+						mode="{device>/listMode}"
+						noDataText="{i18n>masterListNoDataText}"
+						growing="true"
+						growingScrollToLoad="true" >
+							<StandardListItem
+							title="{Actor1Name}"
+							description="{ActionGeo_FullName}" />
+					</List>
+
+				</content>
+			</Panel>
+
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
