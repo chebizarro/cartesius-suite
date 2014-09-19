@@ -1,0 +1,25 @@
+<mvc:View
+	controllerName="sap.ui.Cartesius.view.Map"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:L="sap.ui.Cartesius.lib.L"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+	<Page
+		showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack"
+		class="marginBoxContent"
+		enableScrolling="false"
+		showHeader="false"
+		>
+		<content>
+			
+			<L:Map id="main_map"/>
+
+		</content>
+		<footer>
+			<Toolbar>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
