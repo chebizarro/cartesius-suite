@@ -33,7 +33,7 @@ sap.ui.core.UIComponent.extend("sap.ui.Cartesius.Component", {
 				{
 					pattern : "",
 					name : "main",
-					view : "Master",
+					view : "dashboard.view.Dashboard",
 					targetAggregation : "masterPages",
 					targetControl : "idAppControl"
 				},
