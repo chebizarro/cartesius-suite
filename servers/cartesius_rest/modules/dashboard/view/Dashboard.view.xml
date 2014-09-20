@@ -4,7 +4,8 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<Page
-		showHeader="false"
+		showHeader="true"
+		showNavButton="true"
 		enableScrolling="false" >
 		<TileContainer
 			id="container"
