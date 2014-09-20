@@ -1,10 +1,11 @@
 jQuery.sap.require("sap.ui.Cartesius.util.Controller");
+jQuery.sap.includeStyleSheet('modules/dashboard/css/style.css');
 
 sap.ui.Cartesius.util.Controller.extend("sap.ui.Cartesius.modules.dashboard.controller.Dashboard", {
 
 	onInit : function (evt) {
 		// set mock model
-		var sPath = jQuery.sap.getModulePath("sap.m.sample.TileContainer", "/data.json");
+		var sPath = jQuery.sap.getModulePath("sap.ui.Cartesius.data", "/data.json");
 		var oModel = new sap.ui.model.json.JSONModel(sPath);
 		this.getView().setModel(oModel);
 	},

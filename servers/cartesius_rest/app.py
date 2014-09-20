@@ -3,12 +3,12 @@ import config
 import os
 
 # create our application
-app = Flask(__name__, template_folder = 'static', static_folder = 'static')
+app = Flask(__name__, template_folder = 'modules', static_folder = 'static')
 app.config.from_object(config)
 
 @app.route('/')
 def show_root():
-	return render_template('index.html')
+	return render_template('app/view/index.html')
 
 @app.route('/modules/<path:filename>')
 def get_modules(filename):

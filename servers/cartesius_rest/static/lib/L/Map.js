@@ -1,6 +1,10 @@
 jQuery.sap.registerModulePath('Map', '/lib/L/');
 jQuery.sap.includeStyleSheet('//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css');
+
+//jQuery.sap.registerModulePath('leaflet', 'http://cdn.leafletjs.com/leaflet-0.7.3/'); //not working
+
 jQuery.sap.require("Map.thirdparty.leaflet.leaflet");
+//jQuery.sap.require("leaflet.leaflet");
 
 
 var leaflet_ns = 'sap.ui.Cartesius.lib.L.Map';
@@ -41,7 +45,7 @@ sap.ui.core.Control.extend(leaflet_ns, {
     renderer : function(oRm, oControl) {
 		console.log(leaflet_ns+".Map.onAfterRendering()");
         
-		oRm.write("<div style='position:relative; width: 100%; height:" + oControl.getHeight() +"; padding: 0;'>");
+		oRm.write("<div id='canvas_holder'>");
         oRm.write("<div ");
         oRm.writeControlData(oControl);       
 		oRm.addStyle("position", "absolute");
@@ -80,7 +84,8 @@ sap.ui.core.Control.extend(leaflet_ns, {
 		// Feels kind of hacky
 		var that = this;
 		jQuery(document).ready(function(){
-			that.map.invalidateSize();
+			setTimeout(that.map.invalidateSize.bind(that.map),500);
+			//that.map.invalidateSize();
 		});
 
     }
