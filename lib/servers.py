@@ -70,8 +70,6 @@ class OdataServer(object) :
 		conf = self.config
 		service_url = self.config['SERVICE_ROOT'] + ':' + self.config['SERVICE_PORT']
 
-		#super( OdataServer, self ).__init__(service_url)
-
 		if self.config['READ_ONLY'] :
 			self.server = ReadOnlyServer(service_url)
 		else:
@@ -79,9 +77,6 @@ class OdataServer(object) :
 		
 		self.load_metadata()
 		self.make_containers()
-		#self.server.SetModel(self.metadata)
-
-		#return self.server
 	
 	def __call__(self, environ, start_response):
 		if self.config['CORS'] :
@@ -140,6 +135,7 @@ class OdataServer(object) :
 	
 
 class CORS:
+	# Need to make configurable
 	
 	def __init__(self, application):
 		self.application = application
