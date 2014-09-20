@@ -6,7 +6,6 @@
 	xmlns:L="sap.ui.Cartesius.lib.L">
 	<Page
 		showHeader="true"
-		showNavButton="true"
 		enableScrolling="false" >
 
 		<L:Map id="main_map"/>

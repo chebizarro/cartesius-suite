@@ -89,7 +89,6 @@ sap.ui.core.UIComponent.extend("sap.ui.Cartesius.Component", {
 		this.setModel(deviceModel, "device");
 
 		this.getRouter().initialize();
-
 	},
 
 });
