@@ -34,17 +34,43 @@ sap.ui.core.UIComponent.extend("sap.ui.Cartesius.modules.app.Component", {
 				{
 					pattern : "",
 					name : "main",
-					view : "dashboard.view.Dashboard",
+					view : "app.view.Master",
 					targetAggregation : "masterPages",
 					targetControl : "idAppControl",
 					subroutes : [
 						{
 							pattern : "COP",
 							name : "COP",
-							view : "COP.view.COP"
+							view : "COP.view.COP",
+							subroutes : [
+								{
+									pattern : "sidebar",
+									name : "sidebar",
+									view : "COP.view.Sidebar"
+								}
+							]
+						},
+						{
+							pattern : "dash",
+							name : "dash",
+							view : "dashboard.view.Dashboard"
 						}
 					]
-				}
+				},
+				{
+					name : "catchallMaster",
+					view : "app.view.Master",
+					targetAggregation : "masterPages",
+					targetControl : "idAppControl",
+					subroutes : [
+						{
+							pattern : ":all*:",
+							name : "catchallDetail",
+							view : "app.view.NotFound",
+							transition : "show"
+						}
+					]
+				}			
 			]
 		}
 	},

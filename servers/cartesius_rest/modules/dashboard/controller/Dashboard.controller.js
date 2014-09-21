@@ -16,14 +16,14 @@ sap.ui.Cartesius.modules.app.util.Controller.extend("sap.ui.Cartesius.modules.da
 	},
 
 
-	onRouteMatched : function(oEvent) {
+	onRouteMatched : function(oEvent, data) {
 		var sName = oEvent.getParameter("name");
 
-		if (sName !== "main") {
+		if (sName !== "dash") {
 			return;
 		}
 
-		//Load the detail view in desktop
+		//Load the dash view in desktop
 		this.getRouter().myNavToWithoutHash({ 
 			currentView : this.getView(),
 			targetViewName : "sap.ui.Cartesius.modules.dashboard.view.Dashboard",
@@ -36,7 +36,7 @@ sap.ui.Cartesius.modules.app.util.Controller.extend("sap.ui.Cartesius.modules.da
 		
 		if(tile) {
 			this.getRouter().navTo(tile, {
-				from: "Dashboard"
+				from: "dash"
 			}, true);
 		}
 		
