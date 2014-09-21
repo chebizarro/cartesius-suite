@@ -1,6 +1,9 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true"
-	xmlns="sap.m">
+	xmlns="sap.m"
+	xmlns:L="sap.ui.Cartesius.lib.L"
+	>
+	<L:Map id="main_map"/>
 	<SplitApp id="idAppControl" mode="HideMode"/>
 </mvc:View>

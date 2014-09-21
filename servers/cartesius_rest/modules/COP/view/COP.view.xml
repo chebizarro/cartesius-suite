@@ -1,0 +1,21 @@
+<mvc:View
+	height="100%"
+	controllerName="sap.ui.Cartesius.modules.COP.controller.COP"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	>
+	<Page
+		showHeader="true"
+		enableScrolling="true" >
+
+    <headerContent>
+        <Button icon="sap-icon://customer-view" />
+        <Button icon="sap-icon://settings" />
+        <Button icon="sap-icon://drop-down-list" />
+    </headerContent>
+
+	<content></content>
+		
+	</Page>
+</mvc:View>

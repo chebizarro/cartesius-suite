@@ -1,0 +1,16 @@
+<mvc:View
+	controllerName="sap.ui.Cartesius.modules.app.controller.Master"
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:L="sap.ui.Cartesius.lib.L">
+
+	<Page id="page"
+	showFooter="false">
+
+		<content>
+			
+			
+		</content>
+	</Page>
+</mvc:View>

@@ -3,12 +3,12 @@
 	controllerName="sap.ui.Cartesius.modules.dashboard.controller.Dashboard"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
-	xmlns:L="sap.ui.Cartesius.lib.L">
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	>
 	<Page
-		showHeader="true"
+		showHeader="false"
 		enableScrolling="false" >
 
-		<L:Map id="main_map"/>
 
 		<TileContainer
 			id="container"
@@ -23,15 +23,11 @@
 				numberUnit="{numberUnit}"
 				title="{title}"
 				info="{info}"
-				infoState="{infoState}" />
+				infoState="{infoState}"
+				id="tilez"
+				press="handlePress"
+				app:key="{object}"/>
 		</TileContainer>
 		
-		<footer>
-			<Toolbar>
-				<ToolbarSpacer/>
-				<Button text="Edit" press="handleEditPress" />
-				<ToolbarSpacer/>
-			</Toolbar>
-		</footer>
 	</Page>
 </mvc:View>

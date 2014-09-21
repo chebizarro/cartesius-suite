@@ -23,6 +23,7 @@ sap.ui.core.Control.extend(leaflet_ns, {
             latitude: {type : "float", defaultValue: 51.3},
             longitude: {type : "float", defaultValue: 0.7},
             zoomLevel: {type : "int", defaultValue: 8},
+            userLocation: {type: "boolean", defaultValue: false },
 
 			// Map control display
             displayZoom: {type: "boolean", defaultValue: true },
@@ -67,8 +68,14 @@ sap.ui.core.Control.extend(leaflet_ns, {
 										zoomControl: this.getDisplayZoom(),
 										attributionControl: this.getDisplayAttribution() 
 									});
-									
- 		this.map.setView(new L.LatLng(this.getLatitude(), this.getLongitude()),this.getZoomLevel());
+
+		this.map.zoomControl.setPosition("bottomright");
+		
+		this.map.setView(new L.LatLng(this.getLatitude(), this.getLongitude()),this.getZoomLevel());
+
+		if(this.getUserLocation) {
+			this.map.locate({"setView": true});
+		}
 
 		// create the tile layer with correct attribution		
 		var layer = new L.TileLayer(this.getBaseMapUrl(),
@@ -84,8 +91,8 @@ sap.ui.core.Control.extend(leaflet_ns, {
 		// Feels kind of hacky
 		var that = this;
 		jQuery(document).ready(function(){
-			setTimeout(that.map.invalidateSize.bind(that.map),500);
-			//that.map.invalidateSize();
+			//setTimeout(that.map.invalidateSize.bind(that.map),500);
+			that.map.invalidateSize();
 		});
 
     }

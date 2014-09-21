@@ -1,0 +1,7 @@
+.sapMBarChild, .sapMSplitContainerMasterBtn, .sapMSplitContainerMaster {
+	pointer-events: auto;
+}
+
+.sapMSplitApp {
+	pointer-events: none;
+}

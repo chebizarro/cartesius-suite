@@ -1,13 +1,45 @@
-jQuery.sap.require("sap.ui.Cartesius.util.Controller");
-jQuery.sap.includeStyleSheet('modules/dashboard/css/style.css');
+jQuery.sap.require("sap.ui.Cartesius.modules.app.util.Controller");
+jQuery.sap.require("sap.ui.core.IconPool");
 
-sap.ui.Cartesius.util.Controller.extend("sap.ui.Cartesius.modules.dashboard.controller.Dashboard", {
+sap.ui.Cartesius.modules.app.util.Controller.extend("sap.ui.Cartesius.modules.dashboard.controller.Dashboard", {
 
 	onInit : function (evt) {
+
 		// set mock model
 		var sPath = jQuery.sap.getModulePath("sap.ui.Cartesius.data", "/data.json");
 		var oModel = new sap.ui.model.json.JSONModel(sPath);
 		this.getView().setModel(oModel);
+		
+		
+		this.getRouter().attachRoutePatternMatched(this.onRouteMatched, this);
+
+	},
+
+
+	onRouteMatched : function(oEvent) {
+		var sName = oEvent.getParameter("name");
+
+		if (sName !== "main") {
+			return;
+		}
+
+		//Load the detail view in desktop
+		this.getRouter().myNavToWithoutHash({ 
+			currentView : this.getView(),
+			targetViewName : "sap.ui.Cartesius.modules.dashboard.view.Dashboard",
+			targetViewType : "XML"
+		});
+	},
+
+	handlePress : function (evt) {
+		var tile = evt.getSource().data("key");
+		
+		if(tile) {
+			this.getRouter().navTo(tile, {
+				from: "Dashboard"
+			}, true);
+		}
+		
 	},
 
 	handleEditPress : function (evt) {
@@ -20,5 +52,8 @@ sap.ui.Cartesius.util.Controller.extend("sap.ui.Cartesius.modules.dashboard.cont
 	handleTileDelete : function (evt) {
 		var tile = evt.getParameter("tile");
 		evt.getSource().removeTile(tile);
-	}
+	},
+	
+	
+	
 });

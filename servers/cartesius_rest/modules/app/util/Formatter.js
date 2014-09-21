@@ -1,4 +1,4 @@
-jQuery.sap.declare("sap.ui.Cartesius.util.Formatter");
+jQuery.sap.declare("sap.ui.Cartesius.modules.app.util.Formatter");
 
 sap.ui.Cartesius.util.Formatter = {
 
