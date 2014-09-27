@@ -3,3 +3,6 @@ venv/
 *.pyc
 config.*
 leaflet/
+servers/cartesius_odata/
+servers/cartesius_rest/
+servers/GDELT/
